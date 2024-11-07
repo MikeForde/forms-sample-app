@@ -1,0 +1,75 @@
+:root {
+  --border-style: 1px solid var(--bs-border-color);
+  --red: red;
+  --white: white;
+  --error200: #df3324;
+  --error300: #e51400;
+  --primary50: #eef2f4;
+  --primary100: #f0f0ff;
+  --primary200: #e3e1fa;
+  --primary300: #078db3;
+  --primary700: #122c69;
+  --primary800: #090e2c;
+}
+
+textarea {
+  resize: none;
+}
+
+.app {
+  overflow: hidden auto;
+  height: 100%;
+}
+
+.btn {
+  border-color: var(--white) !important;
+  border-radius: 30px;
+}
+
+.btn-primary {
+  background-color: var(--primary700);
+}
+
+.form-label:has(+.form-control[required])::after {
+  content:" *";
+  color: var(--red);
+}
+
+.invalid-feedback {
+  height: auto;
+  border-radius: 2px;
+  margin-top: 7px;
+  top: 100%;
+  z-index: 2;
+  background-color: var(--primary50);
+  white-space: pre-wrap;
+  line-height: 18px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--error200);
+  min-height: 16px;
+  padding-left: 8px;
+  padding-right: 8px;
+  width: inherit;
+  border-left: 4px var(--error300) solid;
+  min-width: 100px;
+  display: none;
+}
+
+.was-validated .form-control:valid {
+  background-image: none;
+} 
+
+::-webkit-scrollbar-thumb {
+  background: #808285;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}

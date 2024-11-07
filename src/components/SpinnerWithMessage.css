@@ -1,0 +1,19 @@
+.spinner-border {
+  height: 6rem;
+  width: 6rem;
+}
+
+.spinner-container {
+  overflow: hidden;
+  margin-top: 15rem;
+}
+
+.spinner-message {
+  padding-top: 10px;
+}
+
+.spinner-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

@@ -1,0 +1,4 @@
+.toolbar {
+  background: var(--primary100);
+  min-height: 66px;
+}

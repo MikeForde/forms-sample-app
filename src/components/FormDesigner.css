@@ -1,0 +1,4 @@
+.form-designer {
+  border-bottom: var(--border-style);
+  height: calc(100vh - 190px);
+}

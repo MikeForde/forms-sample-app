@@ -1,0 +1,76 @@
+{
+  "name": "forms-sample-app",
+  "displayName": "Forms Sample App",
+  "description": "Sample application for the OpenText Forms API.",
+  "private": true,
+  "version": "24.4.1",
+  "type": "module",
+  "publisher": "OpenText",
+  "license": "Apache-2.0",
+  "repository": {},
+  "keywords": [],
+  "author": "OpenText",
+  "scripts": {
+    "start": "vite",
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "dependencies": {
+    "@opentext/forms-client": "24.4.1",
+    "@opentext/forms-schema-generator": "24.4.1",
+    "@vitejs/plugin-basic-ssl": "^1.1.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "bootstrap": "5.3.3",
+    "oidc-client": "1.11.5",
+    "prop-types": "15.8.1",
+    "react": "^18.3.1",
+    "react-bootstrap": "^2.10.5",
+    "react-data-table-component": "7.6.2",
+    "react-dom": "^18.3.1",
+    "react-icons": "5.3.0",
+    "react-oidc-context": "3.2.0",
+    "react-router-dom": "^6.27.0",
+    "react-scripts": "5.0.1",
+    "save": "^2.9.0",
+    "split-pane-react": "0.1.3",
+    "styled-components": "6.1.13",
+    "vite": "^5.4.10"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.9.1",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "eslint": "8.57.0",
+    "eslint-config-airbnb": "19.0.4",
+    "eslint-config-prettier": "9.1.0",
+    "eslint-config-react-app": "7.0.1",
+    "eslint-plugin-import": "2.29.1",
+    "eslint-plugin-jsx-a11y": "6.8.0",
+    "eslint-plugin-node": "11.1.0",
+    "eslint-plugin-prettier": "5.2.1",
+    "eslint-plugin-promise": "6.2.0",
+    "eslint-plugin-react": "7.34.2",
+    "eslint-plugin-react-hooks": "4.6.2",
+    "globals": "^15.12.0",
+    "prettier": "3.3.3",
+    "stylelint": "16.9.0",
+    "stylelint-config-standard": "36.0.1"
+  },
+  "overrides": {
+    "@svgr/webpack": "8.1.0",
+    "postcss": "8.4.31"
+  }
+}

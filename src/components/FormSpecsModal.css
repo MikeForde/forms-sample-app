@@ -1,0 +1,8 @@
+.form-specs-tab {
+  border-bottom: var(--border-style);
+  border-left: var(--border-style);
+  border-right: var(--border-style);
+  min-height: calc(100vh - 275px);
+  padding-bottom: 10px;
+  padding-top: 10px;
+}

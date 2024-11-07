@@ -1,0 +1,25 @@
+.preview {
+  border-top: var(--border-style);
+}
+
+.preview-left-pane {
+  border-right: var(--border-style);
+}
+
+.preview-peripheral-area {
+  background-color: var(--primary50);
+  height: 100%;
+}
+
+.preview-right-pane {
+  border-left: var(--border-style);
+}
+
+.preview-top-margin {
+  height: 45px;
+}
+
+.split-pane-container {
+  border-bottom: var(--border-style);
+  height: calc(100vh - 235px);
+}

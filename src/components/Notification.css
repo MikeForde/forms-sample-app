@@ -1,0 +1,14 @@
+.notification {
+  position: relative;
+  margin-left: 35%;
+  z-index: 1;
+}
+
+.notification .toast {
+  font-size: 16px;
+  padding: 0.5rem; 
+  position: fixed;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+}

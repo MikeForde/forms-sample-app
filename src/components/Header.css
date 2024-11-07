@@ -1,0 +1,26 @@
+header .navbar {
+  background: linear-gradient(61deg, var(--primary800) 0%, var(--primary700) 59%, var(--primary300) 100%);
+  padding-block: 10px;
+}
+
+header .navbar .dropdown-item {
+  background-color: var(--white);
+  border-radius: 4px;
+  box-shadow: 2px 4px 6px 0 rgba(0 0 0 / 30%);
+}
+
+header .navbar .dropdown-menu {
+  background-color: transparent;
+  border-width: 0;
+  text-align: center;
+  width: 100%;
+}
+
+header .navbar .dropdown-toggle,
+header .navbar .dropdown-toggle:focus {
+  color: var(--white);
+}
+
+header .navbar .dropdown-toggle:hover {
+  color: var(--primary200);
+}
