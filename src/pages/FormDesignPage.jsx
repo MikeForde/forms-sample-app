@@ -27,9 +27,9 @@ function FormDesignPage() {
     activeForm,
     formClient,
     isSpinnerVisible,
-    isUpdated,
     hideSpinner,
-    setIsUpdated,
+    isUnsaved,
+    setIsUnsaved,
     showNotification,
     showSpinner,
   } = useContext(AppContext);
@@ -54,7 +54,6 @@ function FormDesignPage() {
         if (!isAutoSave) {
           checkpointControlRef.current.refreshCheckpoints();
         }
-        setIsUpdated(false);
         setCanSave(false);
         setCanPublish(true);
         hideSpinner();
@@ -90,9 +89,16 @@ function FormDesignPage() {
   }, [formClient]);
 
   useEffect(() => {
+    if (isUnsaved(activeForm) !== canSave) {
+      setIsUnsaved(activeForm, canSave);
+    }
+  }, [activeForm, canSave, isUnsaved, setIsUnsaved]);
+
+  useEffect(() => {
     formClient.getForm({ localReference: activeForm }).then(({ data }) => {
-      if (!data.id || isUpdated) {
+      if (!data.id || isUnsaved(activeForm)) {
         setCanSave(true);
+        setCanPublish(false);
       } else if (data.status === 'DRAFT') {
         setCanPublish(true);
       }
@@ -113,7 +119,7 @@ function FormDesignPage() {
         },
       },
     );
-  }, [activeForm, formClient, isAutoSave, isUpdated]);
+  }, [activeForm, formClient, isAutoSave, isUnsaved]);
 
   return (
     <div hidden={isSpinnerVisible}>

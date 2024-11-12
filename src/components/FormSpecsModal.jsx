@@ -38,12 +38,12 @@ const tabs = {
 function FormSpecsModal({
   show,
   onHide,
+  onUnsaved,
 }) {
   const {
     activeForm,
     formClient,
     isSpinnerVisible,
-    setIsUpdated,
     showNotification,
   } = useContext(AppContext);
   const [isCreate, setIsCreate] = useState(true);
@@ -109,7 +109,7 @@ function FormSpecsModal({
             setCanCreateOrUpdateFormSpecs(false);
             return;
           }
-          await formClient.createForm({
+          const newFormLocalReference = await formClient.createForm({
             namespace: metadata.namespace,
             displayName: metadata.displayName,
             name: metadata.name,
@@ -121,6 +121,7 @@ function FormSpecsModal({
             formColumnCount:
               convertStringToNumber(process.env.REACT_APP_FORM_COLUMN_COUNT, 1),
           });
+          onUnsaved(newFormLocalReference);
           setMetadata(emptyMetadata);
           setSchemaDefinition();
         } else {
@@ -132,8 +133,8 @@ function FormSpecsModal({
               schema: getStringifiedSchemaDefinition(),
             },
           });
+          onUnsaved(activeForm);
         }
-        setIsUpdated(true);
       } catch (err) {
         showNotification(err.message, notificationTypes.error);
       }
@@ -232,6 +233,7 @@ function FormSpecsModal({
 FormSpecsModal.propTypes = {
   show: PropTypes.bool.isRequired,
   onHide: PropTypes.func.isRequired,
+  onUnsaved: PropTypes.func.isRequired,
 };
 
 export default FormSpecsModal;

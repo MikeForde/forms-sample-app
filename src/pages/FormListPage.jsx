@@ -17,11 +17,11 @@ function FormSpecsPage() {
   const {
     activeForm,
     formClient,
-    hideSpinner,
     isSpinnerVisible,
-    isUpdated,
+    hideSpinner,
+    isUnsaved,
     setActiveForm,
-    setIsUpdated,
+    setIsUnsaved,
     showNotification,
     showSpinner,
   } = useContext(AppContext);
@@ -77,7 +77,6 @@ function FormSpecsPage() {
   const handleOnFormDeselect = () => {
     setActiveForm();
     setRemoteForm();
-    setIsUpdated(false);
     setCanLoad(false);
     setCanRun(false);
   };
@@ -87,8 +86,11 @@ function FormSpecsPage() {
     const form = selectedRows[0];
     if (form) {
       setClearSelectedRemoteFormToggle(!clearSelectedRemoteFormToggle);
-      setActiveForm(form.localRef);
-      setCanSave(!form.id);
+      const { localRef } = form;
+      const unsaved = isUnsaved(localRef);
+      setActiveForm(localRef);
+      setCanRun(!canSave);
+      setCanSave(unsaved);
     }
   };
 
@@ -113,7 +115,8 @@ function FormSpecsPage() {
     formClient.loadForm({ namespace: remoteForm?.namespace, name: remoteForm?.name })
       .then((loadedForm) => {
         setActiveForm(loadedForm);
-        setIsUpdated(false);
+        setIsUnsaved(loadedForm, false);
+        setCanSave(false);
         setCanLoad(false);
         refreshLocalFormsList();
         hideSpinner();
@@ -128,7 +131,7 @@ function FormSpecsPage() {
     showSpinner('Saving form...');
     formClient.saveForm({ localReference: activeForm })
       .then(async () => {
-        setIsUpdated(false);
+        setIsUnsaved(activeForm, false);
         setCanSave(false);
         refreshLocalFormsList();
         refreshRemoteFormsList();
@@ -146,9 +149,36 @@ function FormSpecsPage() {
       });
   };
 
+  const handleUnsaved = (localReference) => {
+    setIsUnsaved(localReference, true);
+    setCanSave(true);
+  };
+
   const handleOnClickEditDesign = async () => {
     navigate('/edit');
   };
+
+  useEffect(() => {
+    setCanCreate(!activeForm && !canLoad);
+    setCanEditSpecs(!!activeForm);
+    setCanEditDesign(!!activeForm);
+  }, [activeForm, canLoad]);
+
+  useEffect(() => {
+    if (formClient && isMounted.current && activeForm && activeForm !== 'undefined') {
+      formClient.getForm({ localReference: activeForm }).then(({ data }) => {
+        if (data.id) {
+          setCanRun(!canSave);
+        } else {
+          setCanRun(false);
+        }
+      });
+    }
+  }, [activeForm, canSave, formClient]);
+
+  useEffect(() => {
+    setActiveForm();
+  }, [setActiveForm]);
 
   useEffect(() => {
     if (formClient && !isMounted.current) {
@@ -158,30 +188,6 @@ function FormSpecsPage() {
     }
   }, [formClient, refreshLocalFormsList, refreshRemoteFormsList]);
 
-  useEffect(() => {
-    setCanSave(isUpdated);
-  }, [isUpdated]);
-
-  useEffect(() => {
-    setCanCreate(!activeForm && !canLoad);
-    setCanEditSpecs(!!activeForm);
-    setCanEditDesign(!!activeForm);
-  }, [activeForm, canLoad]);
-
-  useEffect(() => {
-    if (activeForm && activeForm !== 'undefined') {
-      formClient.getForm({ localReference: activeForm }).then(({ data }) => {
-        if (data.id) {
-          setCanRun(!canCreate && !canSave);
-        }
-      });
-    }
-  }, [activeForm, canCreate, canSave, formClient]);
-
-  useEffect(() => {
-    setActiveForm();
-  }, [setActiveForm]);
-
   return (
     <div hidden={isSpinnerVisible}>
       {isMounted.current
@@ -189,6 +195,7 @@ function FormSpecsPage() {
         <FormSpecsModal
           show={showFormSpecsModal}
           onHide={handleOnFormsSpecsModalClose}
+          onUnsaved={handleUnsaved}
         />
       )}
       <Toolbar

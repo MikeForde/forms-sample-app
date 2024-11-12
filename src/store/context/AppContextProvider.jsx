@@ -23,6 +23,7 @@ function AppContextProvider({ children }) {
   const [isUpdated, setIsUpdated] = useState(false);
   const [notificationProps, setNotificationProps] = useState({ message: '', type: '' });
   const [spinnerMessage, setSpinnerMessage] = useState('');
+  const [unsavedLocalForms, setUnsavedLocalForms] = useState(() => JSON.parse(sessionStorage.getItem('unsavedLocalForms')) || []);
 
   const hideSpinner = () => {
     setIsSpinnerVisible(false);
@@ -35,6 +36,21 @@ function AppContextProvider({ children }) {
   };
 
   const showNotification = (message, type) => setNotificationProps({ message, type });
+
+  const setIsUnsaved = (localReference, isUnsaved) => {
+    if (isUnsaved) {
+      setUnsavedLocalForms((prevItems) => {
+        const exists = prevItems.some((item) => item === localReference);
+        return exists ? prevItems : [...prevItems, localReference];
+      });
+    } else {
+      setUnsavedLocalForms((prevItems) => prevItems.filter((item) => item !== localReference));
+    }
+  };
+
+  const isUnsaved = useCallback((localReference) => (
+    unsavedLocalForms.includes(localReference)
+  ), [unsavedLocalForms]);
 
   const setDataSourceErrorHandler = useCallback((dataSourceKey, dataSourceErrorCallback) => {
     formClient?.updateConfig(
@@ -82,6 +98,14 @@ function AppContextProvider({ children }) {
     }
   }, [selectedDesignerConfig]);
 
+  useEffect(() => {
+    if (unsavedLocalForms) {
+      sessionStorage.setItem('unsavedLocalForms', JSON.stringify(unsavedLocalForms));
+    } else {
+      sessionStorage.removeItem('unsavedLocalForms');
+    }
+  }, [unsavedLocalForms]);
+
   const value = useMemo(() => (
     {
       activeForm,
@@ -92,9 +116,11 @@ function AppContextProvider({ children }) {
       selectedDesignerConfig,
       spinnerMessage,
       hideSpinner,
+      isUnsaved,
       setDataSourceErrorHandler,
       setActiveForm,
       setFormClient,
+      setIsUnsaved,
       setIsUpdated,
       showNotification,
       setSelectedDesignerConfig,
@@ -107,8 +133,9 @@ function AppContextProvider({ children }) {
     isUpdated,
     notificationProps,
     selectedDesignerConfig,
-    setDataSourceErrorHandler,
     spinnerMessage,
+    isUnsaved,
+    setDataSourceErrorHandler,
   ]);
 
   return (

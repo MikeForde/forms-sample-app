@@ -107,7 +107,7 @@ function App() {
       {isAuthenticated && <Header email={email} onLogout={() => signoutRedirect()} />}
       <SpinnerWithMessage />
       <div className="app" hidden={!isAuthenticated}>
-        <BrowserRouter>
+        <BrowserRouter future={{ v7_relativeSplatPath: true, v7_startTransition: true }}>
           <Routes>
             <Route path="/" element={<FormListPage />} />
             <Route path="/edit" element={<FormDesignPage />} />
