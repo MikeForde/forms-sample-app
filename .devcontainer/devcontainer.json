@@ -1,0 +1,26 @@
+{
+  "name": "OpenText Forms Sample (Vite + React)",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:1-20-bookworm",
+  "features": {
+    "ghcr.io/devcontainers/features/git:1": {},
+    "ghcr.io/devcontainers/features/common-utils:2": {}
+  },
+  "forwardPorts": [3000, 5173],
+  "portsAttributes": {
+    "3000": { "label": "App (https://localhost:3000)" },
+    "5173": { "label": "Vite default (5173)" }
+  },
+  "remoteEnv": {
+    "HTTPS": "true",
+    "PORT": "3000"
+  },
+  "postCreateCommand": "npm ci || npm install",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode"
+      ]
+    }
+  }
+}
