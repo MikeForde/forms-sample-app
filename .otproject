@@ -1,0 +1,15 @@
+{
+  "projectName": "forms-sample-app",
+  "projectType": "STANDALONE",
+  "application": {
+    "id": "4d711cb4-28fc-48ba-99df-073215699222",
+    "name": "formssampleapp",
+    "displayName": "FormsSampleApp",
+    "description": "Wibble",
+    "version": "1.0",
+    "vendor": "self"
+  },
+  "modelFolders": [
+    "./otresources"
+  ]
+}
