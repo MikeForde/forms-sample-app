@@ -1,0 +1,71 @@
+{
+	"locale": "en",
+	"schema": {
+		"required": [],
+		"properties": {
+			"checkbox_group_1": {
+				"type": "array",
+				"items": {
+					"type": "string",
+					"otOptions": [
+						{
+							"value": "1",
+							"text": "First"
+						},
+						{
+							"value": "2",
+							"text": "Second"
+						}
+					]
+				},
+				"otFormat": {
+					"presentationType": "checkboxgroup",
+					"repeating": false
+				},
+				"title": "Checkbox group",
+				"maxLength": 64,
+				"default": [
+					"1"
+				]
+			},
+			"combobox_1": {
+				"type": "string",
+				"otFormat": {
+					"presentationType": "combobox",
+					"repeating": false
+				},
+				"anyOf": [
+					{
+						"type": "string"
+					},
+					{
+						"type": "string",
+						"otOptions": [
+							{
+								"value": "2",
+								"text": "P2"
+							},
+							{
+								"value": "3",
+								"text": "P3"
+							},
+							{
+								"value": "4",
+								"text": "P4"
+							},
+							{
+								"value": "7",
+								"text": "P7"
+							}
+						]
+					}
+				],
+				"title": "Combobox",
+				"maxLength": 64,
+				"default": "2"
+			}
+		},
+		"$id": "https://www.opentext.com/ocp/devx/ui/new_1/1.0/c10a446e-0cb5-f70a-9bff-bb235780efaa",
+		"type": "object"
+	}
+}
