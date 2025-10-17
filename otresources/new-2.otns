@@ -1,0 +1,11 @@
+{
+  "id": "38d49b82-4123-4e08-9bd3-5e32cde68bfe",
+  "schemaId": "https://www.opentext.com/ocp/devx/common/1.0.0/Namespace",
+  "data": {
+    "display_name": "New-2",
+    "prefix": "wib",
+    "name": "new_2",
+    "description": "wibble"
+  },
+  "serviceName": "common"
+}

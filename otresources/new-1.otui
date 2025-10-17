@@ -1,0 +1,382 @@
+{
+  "id": "ccc57a4f-cc7a-4be3-a649-19c511e4d123",
+  "schemaId": "https://www.opentext.com/ocp/devx/ui/1.0.1/UIComponent",
+  "data": {
+    "namespace": "38d49b82-4123-4e08-9bd3-5e32cde68bfe",
+    "aclId": "",
+    "name": "new_1",
+    "displayName": "New-1",
+    "content": {
+      "schema": {
+        "$id": "https://www.opentext.com/ocp/devx/ui/new_1/1.0/c10a446e-0cb5-f70a-9bff-bb235780efaa",
+        "type": "object",
+        "properties": {}
+      },
+      "design": {
+        "controls": [
+          {
+            "id": "ca072ea5f44e34b2e9f0cdff5897f847c",
+            "data": {
+              "designer": {
+                "allowHeightToBeResized": true,
+                "isContainer": true,
+                "grid": {
+                  "inheritParentColumnCount": true,
+                  "numberOfColumns": 4,
+                  "numberOfRows": 0
+                }
+              },
+              "id": "ca072ea5f44e34b2e9f0cdff5897f847c",
+              "runtime": {
+                "backgroundColor": "",
+                "controls": [],
+                "displayName": "Canvas",
+                "height": {
+                  "unit": "px",
+                  "value": "52"
+                },
+                "parentId": "",
+                "placeholder": "",
+                "propertyPath": "",
+                "readOnly": false,
+                "repeating": false,
+                "required": false,
+                "schemaId": "",
+                "sort": "",
+                "tooltip": "",
+                "type": "canvas",
+                "user": {
+                  "showGroups": false,
+                  "showUsers": false
+                },
+                "width": {
+                  "unit": "%",
+                  "value": 100
+                },
+                "themes": {},
+                "rearrangeControlsForSmallScreens": true
+              }
+            },
+            "schemaId": "https://www.opentext.com/ocp/devx/ui/1.0.0/designerControls"
+          },
+          {
+            "id": "c6abf5a2b84ff40099591c7e0e834a94e",
+            "data": {
+              "designer": {
+                "allowHeightToBeResized": true,
+                "isContainer": true,
+                "grid": {
+                  "inheritParentColumnCount": true,
+                  "numberOfColumns": 4,
+                  "numberOfRows": 0
+                }
+              },
+              "id": "c6abf5a2b84ff40099591c7e0e834a94e",
+              "runtime": {
+                "backgroundColor": "",
+                "controls": [],
+                "displayName": "Form control",
+                "height": {
+                  "unit": "px",
+                  "value": "52"
+                },
+                "parentId": "ca072ea5f44e34b2e9f0cdff5897f847c",
+                "placeholder": "",
+                "propertyPath": "",
+                "readOnly": false,
+                "repeating": false,
+                "required": false,
+                "schemaId": "",
+                "sort": "",
+                "tooltip": "",
+                "type": "form-container",
+                "user": {
+                  "showGroups": false,
+                  "showUsers": false
+                },
+                "width": {
+                  "unit": "%",
+                  "value": 100
+                },
+                "themes": {},
+                "rearrangeControlsForSmallScreens": true
+              }
+            },
+            "schemaId": "https://www.opentext.com/ocp/devx/ui/1.0.0/designerControls"
+          },
+          {
+            "id": "c76c5343b85d2451e87f14099f0c9f2fb",
+            "data": {
+              "designer": {
+                "allowHeightToBeResized": true,
+                "isContainer": true
+              },
+              "id": "c76c5343b85d2451e87f14099f0c9f2fb",
+              "runtime": {
+                "backgroundColor": "",
+                "controls": [
+                  "ca3bed93f8cd94cd197375e90398b102d",
+                  "ca3d742d5e4d244888deecaf0e7ba8ef9"
+                ],
+                "displayName": "Grid container",
+                "height": {
+                  "unit": "px",
+                  "value": 512
+                },
+                "parentId": "c6abf5a2b84ff40099591c7e0e834a94e",
+                "placeholder": "",
+                "propertyPath": "",
+                "readOnly": false,
+                "repeating": false,
+                "required": false,
+                "schemaId": "",
+                "sort": "",
+                "tooltip": "",
+                "type": "responsive-form-grid",
+                "user": {
+                  "showGroups": false,
+                  "showUsers": false
+                },
+                "width": {
+                  "unit": "%",
+                  "value": 800
+                },
+                "themes": {},
+                "border": {
+                  "borderRadius": "",
+                  "color": "",
+                  "onBottom": true,
+                  "onLeft": true,
+                  "onRight": true,
+                  "onTop": true,
+                  "style": "",
+                  "width": {
+                    "value": "",
+                    "unit": "px"
+                  }
+                },
+                "grid": {
+                  "gap": 16,
+                  "numberOfColumns": 4,
+                  "padding": 16
+                }
+              }
+            },
+            "schemaId": "https://www.opentext.com/ocp/devx/ui/1.0.0/designerControls"
+          },
+          {
+            "data": {
+              "designer": {
+                "allowHeightToBeResized": true,
+                "isContainer": false
+              },
+              "id": "ca3bed93f8cd94cd197375e90398b102d",
+              "runtime": {
+                "backgroundColor": "",
+                "controls": [],
+                "displayName": "Checkbox group",
+                "height": {
+                  "unit": "px",
+                  "value": 312
+                },
+                "parentId": "c76c5343b85d2451e87f14099f0c9f2fb",
+                "placeholder": "",
+                "propertyPath": "checkbox_group_1",
+                "readOnly": false,
+                "repeating": false,
+                "required": false,
+                "schemaId": "",
+                "sort": "",
+                "tooltip": "",
+                "type": "simple-list",
+                "user": {
+                  "showGroups": false,
+                  "showUsers": false
+                },
+                "width": {
+                  "unit": "%",
+                  "value": 300
+                },
+                "themes": {},
+                "input": {
+                  "alignment": "",
+                  "color": "",
+                  "decoration": "",
+                  "family": "",
+                  "size": "",
+                  "style": "",
+                  "weight": ""
+                },
+                "label": {
+                  "alignment": "start",
+                  "font": {
+                    "alignment": "",
+                    "color": "",
+                    "decoration": "",
+                    "family": "",
+                    "size": "",
+                    "style": "",
+                    "weight": ""
+                  },
+                  "position": "column",
+                  "show": true,
+                  "text": "Checkbox group",
+                  "width": ""
+                },
+                "gridChild": {
+                  "gridColumnEnd": 1,
+                  "gridColumnStart": 1,
+                  "gridRowEnd": 1,
+                  "gridRowStart": 1
+                }
+              }
+            },
+            "schemaId": "https://www.opentext.com/ocp/devx/ui/1.0.0/designerControls",
+            "id": "ca3bed93f8cd94cd197375e90398b102d"
+          },
+          {
+            "data": {
+              "designer": {
+                "allowHeightToBeResized": false,
+                "isContainer": false,
+                "disableTypeAhead": false
+              },
+              "id": "ca3d742d5e4d244888deecaf0e7ba8ef9",
+              "runtime": {
+                "backgroundColor": "",
+                "controls": [],
+                "displayName": "Combobox",
+                "height": {
+                  "unit": "px",
+                  "value": 52
+                },
+                "parentId": "c76c5343b85d2451e87f14099f0c9f2fb",
+                "placeholder": "",
+                "propertyPath": "combobox_1",
+                "readOnly": false,
+                "repeating": false,
+                "required": false,
+                "schemaId": "",
+                "sort": "",
+                "tooltip": "",
+                "type": "combo-box",
+                "user": {
+                  "showGroups": false,
+                  "showUsers": false
+                },
+                "width": {
+                  "unit": "%",
+                  "value": 300
+                },
+                "themes": {},
+                "maxSnapRows": 1,
+                "input": {
+                  "alignment": "",
+                  "color": "",
+                  "decoration": "",
+                  "family": "",
+                  "size": "",
+                  "style": "",
+                  "weight": ""
+                },
+                "label": {
+                  "alignment": "start",
+                  "font": {
+                    "alignment": "",
+                    "color": "",
+                    "decoration": "",
+                    "family": "",
+                    "size": "",
+                    "style": "",
+                    "weight": ""
+                  },
+                  "position": "column",
+                  "show": true,
+                  "text": "Combobox",
+                  "width": ""
+                },
+                "gridChild": {
+                  "gridColumnEnd": 1,
+                  "gridColumnStart": 2,
+                  "gridRowEnd": 1,
+                  "gridRowStart": 1
+                }
+              }
+            },
+            "schemaId": "https://www.opentext.com/ocp/devx/ui/1.0.0/designerControls",
+            "id": "ca3d742d5e4d244888deecaf0e7ba8ef9"
+          }
+        ]
+      },
+      "designSchemaId": "https://www.opentext.com/ocp/devx/ui/2.0.0/Design",
+      "formSchema": {
+        "required": [],
+        "properties": {
+          "checkbox_group_1": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "otOptions": [
+                {
+                  "value": "1",
+                  "text": "First"
+                },
+                {
+                  "value": "2",
+                  "text": "Second"
+                }
+              ]
+            },
+            "otFormat": {
+              "presentationType": "checkboxgroup",
+              "repeating": false
+            },
+            "title": "Checkbox group",
+            "maxLength": 64,
+            "default": [
+              "1"
+            ]
+          },
+          "combobox_1": {
+            "type": "string",
+            "otFormat": {
+              "presentationType": "combobox",
+              "repeating": false
+            },
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "string",
+                "otOptions": [
+                  {
+                    "value": "2",
+                    "text": "P2"
+                  },
+                  {
+                    "value": "3",
+                    "text": "P3"
+                  },
+                  {
+                    "value": "4",
+                    "text": "P4"
+                  },
+                  {
+                    "value": "7",
+                    "text": "P7"
+                  }
+                ]
+              }
+            ],
+            "title": "Combobox",
+            "maxLength": 64,
+            "default": "2"
+          }
+        }
+      }
+    },
+    "defaultLocale": "en"
+  },
+  "serviceName": "ui"
+}
